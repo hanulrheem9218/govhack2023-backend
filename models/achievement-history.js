@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const AchievementHistorySchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User",
+        required: true,
     },
     achievement: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Achievement"
+        ref: "Achievement",
+        required: true,
     },
     achieved_at: {
         type: Date,
@@ -23,4 +25,4 @@ AchievementHistorySchema.virtual("achievement_history_id").get(function() {
     }
 });
 
-module.exports = AchievementHistory = mongoose.model('achievement_history', AchievementHistorySchema);
+module.exports = AchievementHistory = mongoose.model("AchievementHistory", AchievementHistorySchema);

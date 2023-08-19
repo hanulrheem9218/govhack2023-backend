@@ -10,11 +10,16 @@ const User = require('../models/user');
 // @description Create new user
 // @access Public
 router.post("/", (req, res) => {
-    User.create({...req.body, timestamp: Date(), likes: 0})
+    User.create(req.body)
         .then(user => res.status(201).json({ message: "User added successfully", user: user }))
+        .populate({
+            path: "achievements_history",
+            polulate: {
+                path: "achievement"
+            }
+        })
         .catch(err =>{
             console.log(err);
-            console.log(req.json);
             res.status(400).json({ message: "Unable to create a user." })});
 });
 
@@ -29,7 +34,5 @@ router.put('/:id', (req, res) => {
             console.log(req.json);
             res.status(400).json({ message: "Unable to update user." })});
 });
-
-
 
 module.exports = router;

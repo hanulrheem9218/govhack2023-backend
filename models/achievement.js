@@ -23,4 +23,4 @@ AchievementSchema.virtual("achievement_id").get(function() {
     }
 });
 
-module.exports = Achievement = mongoose.model('achievement', AchievementSchema);
+module.exports = Achievement = mongoose.model("Achievement", AchievementSchema);

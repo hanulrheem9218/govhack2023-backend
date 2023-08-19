@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
     firebase_id: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
 
     username: {
@@ -24,15 +25,19 @@ const UserSchema = new mongoose.Schema({
 
     profile_image: {
         type: String,
-        required: true
+        required: true,
+        default: "",
     },
 
     points: {
         type: Number, 
-        required: true
+        required: true,
+        default: 0,
     },
     achievements_history: {
-        type: [{ type: mongoose.Schema.Types.ObjectId, ref: "AchievementHistory" }]
+        type: [{ type: mongoose.Schema.Types.ObjectId, ref: "AchievementHistory" }],
+        required: true,
+        default: [],
     }
 });
 
@@ -44,4 +49,4 @@ UserSchema.virtual("user_id").get(function() {
     }
 });
 
-module.exports = User = mongoose.model('user', UserSchema);
+module.exports = User = mongoose.model("User", UserSchema);
