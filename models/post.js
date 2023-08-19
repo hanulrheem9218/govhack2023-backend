@@ -19,8 +19,12 @@ const PostSchema = new mongoose.Schema({
     }
 });
 
-PostSchema.virtual('post_id').get(function() {
-    return this._id;
+PostSchema.virtual("post_id").get(function() {
+    if(this._id != null) {
+        return this._id;
+    } else {
+        return null;
+    }
 });
 
 module.exports = Post = mongoose.model('post', PostSchema);

@@ -12,7 +12,7 @@ const Post = require('../models/post');
 router.get("/all", (_, res) => {
     Post.find()
         .then(posts => res.json(posts))
-        .catch(_ => res.status(404).json({ nobooksfound: "No posts found" }));
+        .catch(_ => res.status(404).json({ message: "No posts found" }));
 });
 
 // @route GET api/post/
@@ -20,10 +20,10 @@ router.get("/all", (_, res) => {
 // @access Public
 router.post("/", (req, res) => {
     Post.create({...req.body, timestamp: Date(), likes: 0})
-        .then(post => res.json({ msg: "Post added successfully", post: post }))
+        .then(post => res.status(201).json({ message: "Post added successfully", post: post }))
         .catch(err =>{
             console.log(err);
-            res.status(400).json({ error: "Unable to add this post" })});
+            res.status(400).json({ message: "Unable to create a post." })});
 });
 
 // @route GET api/post/:id
@@ -34,7 +34,7 @@ router.get("/:id", (req, res) => {
     .then(post => res.json(post))
     .catch(err =>{ 
         console.log(err);
-        res.status(404).json({ nopostfound: 'No post found' })});
+        res.status(404).json({ message: "No post with given ID." })});
 });
 
 // @route GET api/post/:id
@@ -42,12 +42,21 @@ router.get("/:id", (req, res) => {
 // @access Public
 router.put('/:id', (req, res) => {
     Post.findByIdAndUpdate(req.params.id, req.body)
-        .then(post => res.json({ msg: 'Updated successfully' }))
+        .then(post => res.json({ message: "Post updated successfully.", post: post }))
         .catch(err =>{ 
             console.log(err);
-            console.log(req.json);
-            res.status(400).json({ error: 'Unable to update the Database' })});
-       
+            res.status(400).json({ message: "Unable to update post." })});
+});
+
+// @route GET api/post/:id
+// @description Delete post by id
+// @access Public
+router.delete('/:id', (req, res) => {
+    Post.findByIdAndRemove(req.params.id)
+        .then(post => res.json({ message: "Successfully deleted post." }))
+        .catch(err => {
+            console.log(err);
+            res.status(404).json({ message: "No post with given ID." })});
 });
 
 module.exports = router;

@@ -7,10 +7,15 @@ const firebaseAuthenticationMiddleware = require("../middleware/firebase-authent
 const connectDB = require("./database.js");
 const posts = require("../routes/posts");
 
+require('dotenv').config();
+
 // App configurations
 app.use(cors({origin:true, credentials: true}));
 app.use(bodyParser.json());
-app.use(firebaseAuthenticationMiddleware.decodeToken);
+
+if(process.env.IS_AUTH_BYPASS != "false") {
+  app.use(firebaseAuthenticationMiddleware.decodeToken);
+}
 
 // Listen 8080
 app.listen(8080);
