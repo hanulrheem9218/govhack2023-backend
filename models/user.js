@@ -7,28 +7,14 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-
-    username: {
+    name: {
         type: String,
         required: true,
-        unique: true
     },
-
-    first_name: {
-        type: String,
-        required: true
-    },
-    last_name: {
-        type: String,
-        required: true
-    },
-
     profile_image: {
         type: String,
-        required: true,
-        default: "",
+        required: false,
     },
-
     points: {
         type: Number, 
         required: true,
@@ -36,7 +22,7 @@ const UserSchema = new mongoose.Schema({
     },
     achievements_history: {
         type: [{ type: mongoose.Schema.Types.ObjectId, ref: "AchievementHistory" }],
-        required: true,
+        required: false,
         default: [],
     }
 });
