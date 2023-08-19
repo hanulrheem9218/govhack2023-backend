@@ -6,16 +6,26 @@ class FirebaseAuthenticationMiddleware {
             return res.status(403).json({ message: "Unauthorised Request" });
         }
 
-		try {
-			const decodeValue = await admin.auth().verifyIdToken(req.headers.authorization.split(' ')[1]);
-			if (decodeValue) {
-				return next();
-			}
-			return res.status(403).json({ message: "Unauthorised Request" });
-		} catch (e) {
-            console.error(e);
-			return res.status(500).json({ message: "Internal Server Error" });
+		const authorizationToken = req.headers.authorization;
+
+		if(authorizationToken.startsWith("Baerer")) {
+			authorizationToken = req.headers.authorization.split[" "];
 		}
+
+		admin.auth()
+			.verifyIdToken(authorizationToken)
+			.then((decodedToken) => {
+				res.locals.authorizationContext = {
+					user_id: decodedToken.user_id,
+					email: decodedToken.email,
+					uid: decodedToken.uid
+				};
+				return next();
+			})
+			.catch((error) => {
+				console.error(error);
+				return res.status(403).json({ message: "Unauthorised Request" });
+			});
 	}
 }
 
