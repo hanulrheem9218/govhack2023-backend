@@ -9,6 +9,7 @@ const posts = require("../routes/posts");
 const achievements = require("../routes/achievements");
 const users = require('../routes/users');
 const monthlyReports = require('../routes/monthly-reports');
+const freebiePostings = require('../routes/freebie-postings');
 
 require("dotenv").config();
 
@@ -36,6 +37,7 @@ app.use("/api/post", posts);
 app.use("/api/achievement",achievements);
 app.use("/api/user", users);
 app.use("/api/monthly-report", monthlyReports);
+app.use("/api/freebie-posting", freebiePostings);
 
 console.log("Starting express server...");
 
