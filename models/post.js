@@ -1,21 +1,25 @@
 const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema({
-    timestamp:{
+    timestamp: {
         type: Date,
         required: true
     },
-    post_image:{
+    post_image: {
         type: String,
         required: false
     },
-    content:{
+    content: {
         type: String,
         required: true
     },
-    likes:{
+    likes: {
         type: Number,
         required: false
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
 });
 
@@ -27,4 +31,4 @@ PostSchema.virtual("post_id").get(function() {
     }
 });
 
-module.exports = Post = mongoose.model('post', PostSchema);
+module.exports = Post = mongoose.model("post", PostSchema);
