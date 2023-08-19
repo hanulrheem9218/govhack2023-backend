@@ -7,27 +7,14 @@ const router = express.Router();
 const Achievement = require('../models/achievement');
 
 // @route GET api/achievements/
-// @description Create new achievement
+// @description Retrieve all achievements
 // @access Public
-router.post("/", (req, res) => {
-    Achievement.create({...req.body, timestamp: Date(), likes: 0})
-        .then(achievement => res.status(201).json({ message: "achievement added successfully", achievement: achievement }))
+router.get("/", (_, res) => {
+    Achievement.find()
+        .then(achievements => res.status(201).json({ message: "achievement added successfully", achievements: achievements }))
         .catch(err =>{
             console.log(err);
-            res.status(400).json({ message: "Unable to create a achievement." })});
+            res.status(400).json({ message: "Unable to retrieve achievements." })});
 });
-
-// @route GET api/achievement/:id
-// @description Update post
-// @access Public
-router.put('/:id', (req, res) => {
-    Achievement.findByIdAndUpdate(req.params.id, req.body)
-        .then(achievement => res.json({ message: "Achievement updated successfully.", achievement: achievement }))
-        .catch(err =>{ 
-            console.log(err);
-            res.status(400).json({ message: "Unable to update achievement." })});
-});
-
-
 
 module.exports = router;
