@@ -1,20 +1,26 @@
-const app = require('express')();
-const { v4 } = require('uuid');
+const bodyParser = require('body-parser');
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+const firebaseAuthenticationMiddleware = require("../middleware/firebase-authentication");
 const connectDB = require("./database.js");
+const posts = require("../routes/posts");
 
-app.get('/api', (req, res) => {
-  const path = `/api/item/${v4()}`;
-  res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-  res.end(`Hello! Go to item: <a href="${path}">${path}</a>`);
-});
+// App configurations
+app.use(cors({origin:true, credentials: true}));
+app.use(bodyParser.json());
+app.use(firebaseAuthenticationMiddleware.decodeToken);
 
-app.get('/api/item/:slug', (req, res) => {
-  const { slug } = req.params;
-  res.end(`Item: ${slug}`);
-});
-
-connectDB();
+// Listen 8080
 app.listen(8080);
-console.log("START");
+
+// Connect to DB
+connectDB();
+
+// routes configurations
+app.use("/api/post", posts);
+
+console.log("Starting express server...");
+
 module.exports = app;
