@@ -1,9 +1,6 @@
 const app = require('express')();
 const { v4 } = require('uuid');
-
-
-
-
+const connectDB = require("./database.js");
 
 app.get('/api', (req, res) => {
   const path = `/api/item/${v4()}`;
@@ -17,6 +14,7 @@ app.get('/api/item/:slug', (req, res) => {
   res.end(`Item: ${slug}`);
 });
 
+connectDB();
 app.listen(8080);
 console.log("START");
 module.exports = app;

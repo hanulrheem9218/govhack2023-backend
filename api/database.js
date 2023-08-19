@@ -2,20 +2,18 @@
 const mongoose = require("mongoose");
 require('dotenv').config()
 
-class Database {
-  constructor() {
-    this._connect();
-  }
-  _connect() {
-    mongoose
-      .connect(process.env.MONGODB_URI)
-      .then(() => {
-        console.log('Database connection successful');
-      })
-      .catch((err) => {
-        console.error('Database connection failed');
-      });
-  }
-}
+const connectDB = async () => {
+    try {
+        mongoose.set('strictQuery', true);
+        await mongoose.connect(process.env.MONGODB_URI, {
+            useNewUrlParser: true,
+        });
 
-module.exports = new Database();
+        console.log('MongoDB is Connected...');
+    } catch (err) {
+        console.error(err.message);
+        process.exit(1);
+    }
+};
+
+module.exports = connectDB;
