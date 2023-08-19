@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
 // @description Update user
 // @access Public
 router.put('/:id', (req, res) => {
-    User.findByIdAndUpdate(req.params.id, req.body)
+    User.findByIdAndUpdate(req.params.id)
         .then(user => res.json({ message: "User updated successfully.", user: user }))
         .catch(err =>{ 
             console.log(err);
