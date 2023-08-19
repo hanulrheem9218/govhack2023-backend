@@ -1,0 +1,52 @@
+[
+    {
+        "title": "Car-Free Commute Challenge",
+        "description": "Commit to using public transportation, biking, walking, or carpooling for your daily commute. Try to minimize or eliminate your use of personal vehicles.",
+        "badge_image": "assets/badges/1.png"
+    },
+    {
+        "title": "Meatless Mondays",
+        "description": "Reduce your meat consumption by dedicating one day a week to a vegetarian or plant-based diet. Livestock farming is a major contributor to greenhouse gas emissions.",
+        "badge_image": "assets/badges/2.png"
+    },
+    {
+        "title": "Energy-Efficient Home Challenge",
+        "description": "Make your home more energy-efficient by using LED bulbs, sealing drafts, insulating properly, and using smart thermostats to optimize heating and cooling.",
+        "badge_image": "assets/badges/3.png"
+    },
+    {
+        "title": "Reduce, Reuse, Recycle Challenge",
+        "description": "Focus on reducing waste by reusing items, recycling materials properly, and minimizing single-use plastics. Opt for reusable bags, bottles, and containers.",
+        "badge_image": "assets/badges/4.png"
+    },
+    {
+        "title": "Unplug and Power Down Challenge",
+        "description": "Make a conscious effort to unplug chargers and devices when they're not in use, and turn off lights and electronics when leaving a room.",
+        "badge_image": "assets/badges/5.png"
+    },
+    {
+        "title": "Minimalist Consumption Challenge",
+        "description": "Assess your buying habits and opt for quality over quantity. Buy only what you truly need and choose products with minimal packaging.",
+        "badge_image": "assets/badges/6.png"
+    },
+    {
+        "title": "Local and Seasonal Eating Challenge",
+        "description": "Support local farmers and reduce the carbon footprint of your food by choosing locally grown and seasonal produce.",
+        "badge_image": "assets/badges/7.png"
+    },
+    {
+        "title": "Eco-Friendly Shopping Challenge",
+        "description": "Prioritize eco-friendly products and brands that use sustainable materials and ethical practices. This includes clothing, personal care, and household items.",
+        "badge_image": "assets/badges/8.png"
+    },
+    {
+        "title": "Energy-Saving Technology Challenge",
+        "description": "Invest in energy-efficient appliances and consider using solar panels or renewable energy sources to power your home.",
+        "badge_image": "assets/badges/9.png"
+    },
+    {
+        "title": "Plant a Tree Challenge",
+        "description": "Trees absorb carbon dioxide and release oxygen, making them vital in reducing atmospheric CO2 levels. Plant trees in your backyard, community spaces, or participate in local tree planting events.",
+        "badge_image": "assets/badges/10.png"
+    },    
+]
