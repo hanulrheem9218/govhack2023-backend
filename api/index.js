@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-const cors = require('cors');
+//const cors = require('cors');
 const app = express();
 
 const firebaseAuthenticationMiddleware = require("../middleware/firebase-authentication");
@@ -13,7 +13,7 @@ const monthlyReports = require('../routes/monthly-reports');
 require("dotenv").config();
 
 // App configurations
-app.use(cors({origin:true, credentials: true}));
+//app.use(cors({origin:true, credentials: true}));
 app.use(bodyParser.json());
 
 if(process.env.IS_AUTH_BYPASS != "true") {
