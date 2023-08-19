@@ -46,7 +46,7 @@ router.get("/:id", (req, res) => {
 // @access Public
 router.put('/:id', (req, res) => {
     Post.findByIdAndUpdate(req.params.id, req.body)
-        .then(post => res.json({ message: "Post updated successfully.", post: post }))
+        .then(post => res.json({ message: "Post updated successfully." }))
         .catch(err =>{ 
             console.log(err);
             res.status(400).json({ message: "Unable to update post." })});
@@ -61,6 +61,17 @@ router.delete('/:id', (req, res) => {
         .catch(err => {
             console.log(err);
             res.status(404).json({ message: "No post with given ID." })});
+});
+
+// @route GET api/post/:id/like
+// @description Like post
+// @access Public
+router.put('/:id/like', (req, res) => {
+    Post.findByIdAndUpdate(req.params.id, { $inc: { likes: 1 } })
+        .then(post => res.json({ message: "Post updated successfully." }))
+        .catch(err =>{ 
+            console.log(err);
+            res.status(400).json({ message: "Unable to update post." })});
 });
 
 module.exports = router;
