@@ -19,10 +19,10 @@ router.get("/all", (_, res) => {
 // @description Create new post
 // @access Public
 router.post("/", (req, res) => {
-    if(!req.locals.authorizationContext) {
+    if(req.authorizationContext == null) {
         res.status(403).json({ message: "User unauthorized." });
     } else {
-        Post.create({...req.body, user: req.locals.authorizationContext.user_id, timestamp: Date(), likes: 0})
+        Post.create({...req.body, user_id: req.authorizationContext.user_id, timestamp: Date(), likes: 0})
         .then(post => res.status(201).json({ message: "Post added successfully", post: post }))
         .catch(err =>{
             console.log(err);

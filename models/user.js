@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 const UserSchema = new mongoose.Schema({
-    firebase_id: {
+    user_id: {
         type: String,
         required: true,
         unique: true
@@ -38,14 +38,6 @@ const UserSchema = new mongoose.Schema({
         type: [{ type: mongoose.Schema.Types.ObjectId, ref: "AchievementHistory" }],
         required: true,
         default: [],
-    }
-});
-
-UserSchema.virtual("user_id").get(function() {
-    if(this._id != null) {
-        return this.firebase_id;
-    } else {
-        return null;
     }
 });
 
