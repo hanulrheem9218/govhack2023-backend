@@ -15,7 +15,7 @@ class FirebaseAuthenticationMiddleware {
 		admin.auth()
 			.verifyIdToken(authorizationToken)
 			.then((decodedToken) => {
-				res.locals.authorizationContext = {
+				req.authorizationContext = {
 					user_id: decodedToken.user_id,
 					email: decodedToken.email,
 					uid: decodedToken.uid

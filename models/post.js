@@ -17,17 +17,9 @@ const PostSchema = new mongoose.Schema({
         type: Number,
         required: false
     },
-    user: {
+    user_id: {
         type: String,
         required: true
-    }
-});
-
-PostSchema.virtual("post_id").get(function() {
-    if(this._id != null) {
-        return this._id;
-    } else {
-        return null;
     }
 });
 
