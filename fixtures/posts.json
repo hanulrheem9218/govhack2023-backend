@@ -1,0 +1,46 @@
+[
+    {
+        "user_id": "city_council",
+        "content": "Road upgrade alert! We are working on potholes on Hills Road! We will update you all shortly about the progress.",
+        "post_image": "assets/images/pothole.jpg",
+        "like": 581,
+        "comment": [
+            {
+                "user_id": "citizen_1",
+                "content": "Can't wait to see the fixed road!"
+            },
+            {
+                "user_id": "citizen_2",
+                "content": "Amazing! Thanks for adressing this issue!"
+            }
+        ]
+    },
+    {
+        "user_id": "citizen_1",
+        "content": "I found broken bench from Victora park :( Hey @cityconucil, Can you fix this?",
+        "post_image": "assets/images/broken_bench.jpg",
+        "like": 198,
+        "comment": [
+            {
+                "user_id": "citizen_2",
+                "content": "Oh no! That's annoying. Hope it gets fixed soon."
+            },
+            {
+                "user_id": "city_council",
+                "content": "Thanks for reporting the problem! We added this to our ToDos list! We will keep you updated."
+            }
+        ]
+    },
+    {
+        "user_id": "citizen_2",
+        "content": "Don't forget to take your water bottle when you go out! Let's reduce plastic usage!",
+        "post_image": "assets/images/water_bottle.jpg",
+        "like": 244,
+        "comment": [
+            {
+                "user_id": "citizen_1",
+                "content": "Thanks for the reminder!"
+            }
+        ]
+    }
+]

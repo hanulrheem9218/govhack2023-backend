@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
     if(req.authorizationContext == null) {
         res.status(403).json({ message: "User unauthorized." });
     } else {
-        Post.create({...req.body, user_id: req.authorizationContext.user_id, timestamp: Date(), likes: 0})
+        Post.create({...req.body, user_id: req.authorizationContext.user_id, timestamp: Date(), likes: 0, comments: []})
         .then(post => res.status(201).json({ message: "Post added successfully", post: post }))
         .catch(err =>{
             console.log(err);
@@ -72,6 +72,21 @@ router.put('/:id/like', (req, res) => {
         .catch(err =>{ 
             console.log(err);
             res.status(400).json({ message: "Unable to update post." })});
+});
+
+// @route GET api/post/:id/comment
+// @description Like post
+// @access Public
+router.post('/:id/comment', (req, res) => {
+    if(req.authorizationContext == null) {
+        res.status(403).json({ message: "User unauthorized." });
+    } else {
+        Post.findByIdAndUpdate(req.params.id, { $push: { comment: {...req.body, user_id: req.authorizationContext.user_id, timestamp: Date()} } })
+        .then(post => res.json({ message: "Comment updated successfully." }))
+        .catch(err =>{ 
+            console.log(err);
+            res.status(400).json({ message: "Unable to add comment." })});
+    }
 });
 
 module.exports = router;
