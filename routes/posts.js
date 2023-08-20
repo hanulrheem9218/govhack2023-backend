@@ -5,14 +5,22 @@ const router = express.Router();
 
 // Load Book model
 const Post = require('../models/post');
+const User = require("../models/user");
 
 // @route GET api/post/all
 // @description Get all posts
 // @access Public
 router.get("/all", (_, res) => {
     Post.find()
-        .then(posts => res.json(posts))
-        .catch(_ => res.status(404).json({ message: "No posts found" }));
+        .populate({ path: "user_id" })
+        .populate({ path: "comments", populate: "user_id" })
+        .then((posts) => {
+            res.json(posts);
+        })
+        .catch(e => {
+            console.log(e);
+            res.status(404).json({ message: "No posts found" });
+    });
 });
 
 // @route GET api/post/
@@ -22,8 +30,14 @@ router.post("/", (req, res) => {
     if(req.authorizationContext == null) {
         res.status(403).json({ message: "User unauthorized." });
     } else {
-        Post.create({...req.body, user_id: req.authorizationContext.user_id, timestamp: Date(), likes: 0, comments: []})
-        .then(post => res.status(201).json({ message: "Post added successfully", post: post }))
+        User.findOne({ user_id: req.authorizationContext.user_id })
+        .then(user => {
+            Post.create({...req.body, user_id: user._id, timestamp: Date(), likes: 0, comments: []})
+            .then(post => res.status(201).json({ message: "Post added successfully", post: post }))
+            .catch(err =>{
+                console.log(err);
+                res.status(400).json({ message: "Unable to create a post." })});
+        })
         .catch(err =>{
             console.log(err);
             res.status(400).json({ message: "Unable to create a post." })});
@@ -81,11 +95,17 @@ router.post('/:id/comment', (req, res) => {
     if(req.authorizationContext == null) {
         res.status(403).json({ message: "User unauthorized." });
     } else {
-        Post.findByIdAndUpdate(req.params.id, { $push: { comment: {...req.body, user_id: req.authorizationContext.user_id, timestamp: Date()} } })
-        .then(post => res.json({ message: "Comment updated successfully." }))
-        .catch(err =>{ 
+        User.findOne({ user_id: req.authorizationContext.user_id })
+        .then(user => {
+            Post.findByIdAndUpdate(req.params.id, { $push: { comment: {...req.body, user_id: user._id, timestamp: Date()} } })
+            .then(post => res.json({ message: "Comment updated successfully." }))
+            .catch(err =>{ 
+                console.log(err);
+                res.status(400).json({ message: "Unable to add comment." })});
+        })
+        .catch(err =>{
             console.log(err);
-            res.status(400).json({ message: "Unable to add comment." })});
+            res.status(400).json({ message: "Unable to create a post." })});
     }
 });
 
