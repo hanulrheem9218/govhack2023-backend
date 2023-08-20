@@ -6,6 +6,17 @@ const router = express.Router();
 // Load achievement model
 const User = require('../models/user');
 
+// @route GET api/user/:id
+// @description Load freebie-posting
+// @access Public
+router.get("/:id", (req, res) => {
+    User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err => { 
+        console.log(err);
+        res.status(404).json({ message: "No freebie posting with given ID." })});
+});
+
 // @route GET api/users/
 // @description Create new user
 // @access Public
