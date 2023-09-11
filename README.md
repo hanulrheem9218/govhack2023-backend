@@ -1,6 +1,6 @@
 # Green Kiwi Backend Server
 
-<img src="https://github.com/hanulrheem9218/govhack2023-backend/assets/backend.PNG"  width="100%" />
+<img src="https://github.com/hanulrheem9218/govhack2023-backend/tree/master/assets/backend.PNG"  width="100%" />
 
 This project serves as the backend server for Green Kiwi and is written in Express.js, And I was assigned as the backend developer.
 I was given just two days to develop the backend server during the competition, and although I was new to Express.js, with the team, I was able to successfully complete the backend server. 
