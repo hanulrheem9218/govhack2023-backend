@@ -32,6 +32,13 @@ This experience taught me that achieving fast production results requires both k
 
 # Package Structure
 
+- **api** — contains api call for the frontend server.
+- **assets** — contains all images assets.
+- **config** —  contains various configruations for the mongoose and firebase.
+- **fixtures** — contains temporary json files for testing.
+- **middleware** —
+- **models** —
+- **routes** —
 
 # Testing
 
