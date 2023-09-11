@@ -2,7 +2,7 @@
 
 <img src="https://github.com/hanulrheem9218/govhack2023-backend/blob/master/assets/backend.PNG"  width="100%" />
 
-Desciption: This project serves as the backend server for Green Kiwi and is written in Express.js, And I was assigned as the backend developer.
+Description: This project serves as the backend server for Green Kiwi and is written in Express.js, And I was assigned as the backend developer.
 I was given just two days to develop the backend server during the competition, and although I was new to Express.js, with the team, I was able to successfully complete the backend server. 
 This experience taught me that achieving fast production results requires both knowledge and the ability to work effectively as part of a team.
 
