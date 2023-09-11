@@ -6,9 +6,9 @@ This experience taught me that achieving fast production results requires both k
 
 ## Design Pattern: Controller-Service-Repository
 
--Controller: used the controller to implement rest interface for the business logics.
--Service: applied the businnes logics to the service.
--Repository: stored the entities into the github.
+- Controller: used the controller to implement rest interface for the business logics.
+- Service: applied the businnes logics to the service.
+- Repository: stored the entities into the github.
 
 ## Features
 
