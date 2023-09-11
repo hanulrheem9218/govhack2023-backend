@@ -4,6 +4,12 @@ This project serves as the backend server for Green Kiwi and is written in Expre
 I was given just two days to develop the backend server during the competition, and although I was new to Express.js, with the team, I was able to successfully complete the backend server. 
 This experience taught me that achieving fast production results requires both knowledge and the ability to work effectively as part of a team.
 
+## Design Pattern: Controller-Service-Repository
+
+-Controller: used the controller to implement rest interface for the business logics.
+-Service: applied the businnes logics to the service.
+-Repository: stored the entities into the github.
+
 ## Features
 
 ### Finished (Backend Features)
