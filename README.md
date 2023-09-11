@@ -20,13 +20,13 @@ taught me that achieving fast production results requires both knowledge and the
 ### Bug Fixes
 
 <details><summary>Expand to see bug fixes</summary>
-- Incorrect firebase authentication api with backend server.
-- MongoDB vercel intergration issues with enviroment variables.
-- Vercel.json configuration error, incorrect destinaiton source and the address.
-- Incorrect mongoose data schema types for the data entities.
-- Linking image issues with the vercel.
-- Incorrect returning types for the user, achievements, monthly-reports, freebie-postings.
-- There are Vercel configuration issues with a hosting address that is only accessible with '/api'.
+  - Incorrect firebase authentication api with backend server.
+  - MongoDB vercel intergration issues with enviroment variables.
+  - Vercel.json configuration error, incorrect destinaiton source and the address.
+  - Incorrect mongoose data schema types for the data entities.
+  - Linking image issues with the vercel.
+  - Incorrect returning types for the user, achievements, monthly-reports, freebie-postings.
+  - There are Vercel configuration issues with a hosting address that is only accessible with '/api'.
 </details>
 
 
