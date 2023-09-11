@@ -36,18 +36,8 @@ This experience taught me that achieving fast production results requires both k
 - **assets** — contains all images assets.
 - **config** —  contains various configruations for the mongoose and firebase.
 - **fixtures** — contains temporary json files for testing.
-- **middleware** —
-- **models** —
-- **routes** —
-
-# Testing
-
-
-
-# Continuous Integration (CI)
-
-
-
-# Screenshots
+- **middleware** — firebase related login authentication/authorisation
+- **models** — data entities model for the mongodb database.
+- **routes** — data schema model for the model entities.
 
 
