@@ -1,10 +1,8 @@
 # Green Kiwi Backend Server
 
-This project serves as the backend server for Green Kiwi and is written in Express.js. I was assigned as the backend developer,
-and I had the privilege of working alongside **Jun Hyeok**, our senior backend developer, who provided invaluable assistance to the 
-team. We were given just two days to develop the backend server during the competition, and although I was new to Express.js, 
-with the guidance and support of my senior colleague, I was able to successfully complete the backend server. This experience
-taught me that achieving fast production results requires both knowledge and the ability to work effectively as part of a team.
+This project serves as the backend server for Green Kiwi and is written in Express.js, And I was assigned as the backend developer.
+I was given just two days to develop the backend server during the competition, and although I was new to Express.js, with the team, I was able to successfully complete the backend server. 
+This experience taught me that achieving fast production results requires both knowledge and the ability to work effectively as part of a team.
 
 ## Features
 
